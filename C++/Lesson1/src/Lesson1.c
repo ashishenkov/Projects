@@ -11,6 +11,10 @@
 #include <stdlib.h>
 
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	// \n \t \\ \0
+	printf("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	printf("This is a new \trow with tab ");
+	printf("This is a new row with \\ symbol ");
+	printf("This is a new row with \0");
 	return 0;
 }

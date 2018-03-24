@@ -27,7 +27,30 @@ public class Main {
 //        changeNumber();
 //        foundRoots();
  //       season();
-        humanAge();
+      //  humanAge();
+        chessBoard();
+
+
+
+    }
+
+    static void chessBoard() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input x1");
+        int x1 = scanner.nextInt();
+        System.out.println("Input x2");
+        int x2 = scanner.nextInt();
+        System.out.println("Input y1");
+        int y1 = scanner.nextInt();
+        System.out.println("Input y2");
+        int y2 = scanner.nextInt();
+        x1+=x2;
+        y1+=y2;
+        if (x1%2==y1%2) {
+            System.out.println("color is the same\n");
+        }else System.out.println("color is not the same\n");
+
+
     }
 
 

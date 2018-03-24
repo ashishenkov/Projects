@@ -16,7 +16,7 @@ import java.math.*;
  6. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе с последующим словом «год», «года» или «лет».
 
  * @author Alexandr Shishenkov
- * @version March 22, 2018
+ * @version March 24, 2018
  */
 public class Main {
 
@@ -26,13 +26,42 @@ public class Main {
 //        maxNumber();
 //        changeNumber();
 //        foundRoots();
- //       season();
-      //  humanAge();
-        chessBoard();
+        //       season();
+        //  humanAge();
+        // chessBoard();
 
 
-
+        quickPow();
     }
+
+    private static void quickPow() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input power a: ");
+        int a = scanner.nextInt();
+        System.out.println("Input power b: ");
+        int b = scanner.nextInt();
+        int b1= b;
+        long n = 1;
+        while (b!=0) {
+            n = a * a * a;
+            b--;
+        }
+        int b1 =b * b;
+        System.out.println("Power a:" +a +"\tPower b:" + b1 + "\tPower "+n);
+    }
+
+//
+//        while ( b!=1 ) {
+//            if ( b % 2) {
+//                b --;
+//                n *= a;
+//            } else {
+//                a *= a;
+//                b /= 2;
+//            }
+//        }
+   //     System.out.println(" "+a +" "+b +" " +n);
+
 
     static void chessBoard() {
         Scanner scanner = new Scanner(System.in);

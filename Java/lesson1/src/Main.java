@@ -10,6 +10,7 @@ import java.math.*;
  *3. Написать программу обмена значениями двух целочисленных переменных:
  a. с использованием третьей переменной;
  b. *без использования третьей переменной.
+ 4 Написать программу нахождения корней заданного квадратного уравнения. ax2+bx+c=0
  * @author Alexandr Shishenkov
  * @version March 22, 2018
  */
@@ -19,9 +20,35 @@ public class Main {
 
 //        bodyIndex();
 //        maxNumber();
-        changeNumber();
-
+//        changeNumber();
+        foundRoots();
     }
+
+   static void foundRoots() {
+       DecimalFormat df = new DecimalFormat("#.##");
+       df.setRoundingMode(RoundingMode.CEILING);
+
+       System.out.println("Input a:");
+       Scanner scanner = new Scanner(System.in);
+       int a = scanner.nextInt();
+       System.out.println("Input b:");
+       int b = scanner.nextInt();
+       System.out.println("Input c:");
+       int c = scanner.nextInt();
+
+        double des = b*b -4*a*c;
+       System.out.println("Discriminant: " +des);
+     if (des <  0) System.out.println("No roots");
+     if (des == 0) {
+         double x2 = (-b - Math.sqrt(des)) / (2 * a);
+         System.out.println("Two equal roots " + df.format(x2) );
+        }
+     if (des > 0) {
+         double x1 = (-b - Math.sqrt(des)) / (2 * a);
+         double x2 = (-b + Math.sqrt(des)) / (2 * a);
+         System.out.println("One root " +df.format(x1) + "\nTwo root "+ df.format(x2));
+     }
+     }
 
     static void changeNumber() {
         System.out.println("Inpet number1: ");

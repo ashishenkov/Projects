@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.math.*;
@@ -11,6 +12,9 @@ import java.math.*;
  a. с использованием третьей переменной;
  b. *без использования третьей переменной.
  4 Написать программу нахождения корней заданного квадратного уравнения. ax2+bx+c=0
+ 5 С клавиатуры вводится номер месяца. Требуется определить, к какому времени года он относится.
+ 6. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе с последующим словом «год», «года» или «лет».
+
  * @author Alexandr Shishenkov
  * @version March 22, 2018
  */
@@ -21,10 +25,55 @@ public class Main {
 //        bodyIndex();
 //        maxNumber();
 //        changeNumber();
-        foundRoots();
+//        foundRoots();
+ //       season();
+        humanAge();
     }
 
-   static void foundRoots() {
+
+    static void humanAge() {
+        int i = 0;
+        System.out.println("Input age: ");
+        Scanner scanner = new Scanner(System.in);
+        int age = scanner.nextInt();
+        int t1 = age % 10;
+        int t2 = age % 100;
+        if(t1 == 1 && t2 != 11) {
+            System.out.println("Возраст " + age + "год");
+        }
+        if(t1 >= 2 && t1 <= 4 && (t2 < 10 || t2 >= 20)) {
+            System.out.println("Возраст " +age + " года");
+        }else
+            System.out.println("Возраст "  +age +" лет ");
+
+    }
+
+    static void season() {
+       // final  int month = 12;
+       // String [] array = ("зима","весна","лето","осень");
+            System.out.println("Input number of month:");
+            Scanner scanner = new Scanner(System.in);
+            int m = scanner.nextInt();
+            if(m <= 12){
+                if(m < 6|| m == 12){
+                    if(m < 3||m ==12)
+                        System.out.println("\nSeason: Winter!");
+                else
+                        System.out.println("\nSeason: Spring!");
+            }
+            else
+            {
+                if(m < 9)
+                    System.out.println("\nSeason: Summer!");
+                else
+                    System.out.println("\nSeason: Autumn!");
+            }
+        }
+        else
+                System.out.println("Number of month must be within at 1 to 12");
+    }
+
+    static void foundRoots() {
        DecimalFormat df = new DecimalFormat("#.##");
        df.setRoundingMode(RoundingMode.CEILING);
 

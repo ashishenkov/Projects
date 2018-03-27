@@ -15,8 +15,11 @@ import java.math.*;
  5 С клавиатуры вводится номер месяца. Требуется определить, к какому времени года он относится.
  6. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе с последующим словом «год», «года» или «лет».
  7. С клавиатуры вводятся числовые координаты двух полей шахматной доски (x1,y1,x2,y2). Требуется определить,
- относятся ли к поля к одному цвету или нет.
+     относятся ли к поля к одному цвету или нет.
  8. Ввести a и b и вывести квадраты и кубы чисел от a до b.
+ 9. Даны целые положительные числа N и K. Используя только операции сложения и вычитания,
+    найти частное от деления нацело N на K, а также остаток от этого деления.
+
  * @author Alexandr Shishenkov
  * @version March 24, 2018
  */
@@ -31,9 +34,27 @@ public class Main {
         //       season();
         //  humanAge();
         // chessBoard();
+//        quickPow();
+        quotient();
+    }
+
+    static void quotient() {    // частное от деления
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Input N: ");
+        int n = scanner.nextInt();
+        System.out.println("Input K: ");
+        int k = scanner.nextInt();
+        int h = 0;
+        int o = 0;
+        while (n >= k){
+                 h = h+1;
+                 n = n -k;
+        }
+       o = n;
+        System.out.println("Частное: " + h + "\tОстаток:" + o);
 
 
-        quickPow();
     }
 
     private static void quickPow() {

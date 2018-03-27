@@ -21,6 +21,8 @@ import java.math.*;
     найти частное от деления нацело N на K, а также остаток от этого деления.
  10. Дано целое число N (> 0). С помощью операций деления нацело и взятия остатка от деления определить,
     имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
+ 11. С клавиатуры вводятся числа, пока не будет введен 0.
+    Подсчитать среднее арифметическое всех положительных четных чисел, оканчивающихся на 8.
 
  * @author Alexandr Shishenkov
  * @version March 24, 2018
@@ -28,16 +30,42 @@ import java.math.*;
 public class Main {
 
     public static void main(String[] args) {
-
-//        bodyIndex();
-//        maxNumber();
-//        changeNumber();
-//        foundRoots();
-        //       season();
-        //  humanAge();
-        // chessBoard();
-//        quickPow();
+        System.out.println("*********Упражнение 1***************");
+        bodyIndex();
+        System.out.println("*********Упражнение 2***************");
+        maxNumber();
+        System.out.println("*********Упражнение 3***************");
+        changeNumber();
+        System.out.println("*********Упражнение 4***************");
+        foundRoots();
+        System.out.println("*********Упражнение 5***************");
+        season();
+        System.out.println("*********Упражнение 6***************");
+        humanAge();
+        System.out.println("*********Упражнение 7***************");
+         chessBoard();
+        System.out.println("*********Упражнение 8***************");
+        quickPow();
+        System.out.println("*********Упражнение 9***************");
         quotient();
+        System.out.println("*********Упражнение 10***************");
+        average();
+    }
+
+    static void average() {
+        int k = 0;
+        int s = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input N: ");
+        int n = scanner.nextInt();
+
+        while ( n!=0 ) {
+            k = k + 1;
+            s = s + n;
+            System.out.println("Input N: ");
+            n = scanner.nextInt();
+        }
+            if (s % 8 ==0) System.out.println("Average:  " + s/k);
     }
 
     static void quotient() {    // частное от деления

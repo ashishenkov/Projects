@@ -19,6 +19,8 @@ import java.math.*;
  8. Ввести a и b и вывести квадраты и кубы чисел от a до b.
  9. Даны целые положительные числа N и K. Используя только операции сложения и вычитания,
     найти частное от деления нацело N на K, а также остаток от этого деления.
+ 10. Дано целое число N (> 0). С помощью операций деления нацело и взятия остатка от деления определить,
+    имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
 
  * @author Alexandr Shishenkov
  * @version March 24, 2018
@@ -47,14 +49,21 @@ public class Main {
         int k = scanner.nextInt();
         int h = 0;
         int o = 0;
+        int res = n;
         while (n >= k){
                  h = h+1;
                  n = n -k;
         }
        o = n;
         System.out.println("Частное: " + h + "\tОстаток:" + o);
-
-
+        int result = 0;
+        while ( res > 0)
+        {
+            result = result + res % 2;
+            res = res / 10;
+        }
+        if (result> 0 && res == 0) System.out.println("True");
+        else System.out.println("False");
     }
 
     private static void quickPow() {

@@ -3,6 +3,8 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.math.*;
 
+import static java.lang.Math.random;
+
 /**
  * Java. Lesson 1. Homework
  * 1 Ввести вес и рост человека. Рассчитать и вывести индекс массы тела по формуле I=m/(h*h);
@@ -23,49 +25,108 @@ import java.math.*;
     имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
  11. С клавиатуры вводятся числа, пока не будет введен 0.
     Подсчитать среднее арифметическое всех положительных четных чисел, оканчивающихся на 8.
-
+ 12. Написать функцию нахождения максимального из трех чисел.
+ 13. * Написать функцию, генерирующую случайное число от 1 до 100.
+    с использованием стандартной функции rand()
+    без использования стандартной функции rand()
  * @author Alexandr Shishenkov
  * @version March 24, 2018
  */
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("*********Упражнение 1***************");
-        bodyIndex();
-        System.out.println("*********Упражнение 2***************");
-        maxNumber();
-        System.out.println("*********Упражнение 3***************");
-        changeNumber();
-        System.out.println("*********Упражнение 4***************");
-        foundRoots();
-        System.out.println("*********Упражнение 5***************");
-        season();
-        System.out.println("*********Упражнение 6***************");
-        humanAge();
-        System.out.println("*********Упражнение 7***************");
-         chessBoard();
-        System.out.println("*********Упражнение 8***************");
-        quickPow();
-        System.out.println("*********Упражнение 9***************");
-        quotient();
-        System.out.println("*********Упражнение 10***************");
-        average();
+//        System.out.println("*********Упражнение 1***************");
+//        bodyIndex();
+//        System.out.println("*********Упражнение 2***************");
+//        maxNumber();
+//        System.out.println("*********Упражнение 3***************");
+//        changeNumber();
+//        System.out.println("*********Упражнение 4***************");
+//        foundRoots();
+//        System.out.println("*********Упражнение 5***************");
+//        season();
+//        System.out.println("*********Упражнение 6***************");
+//        humanAge();
+//        System.out.println("*********Упражнение 7***************");
+//         chessBoard();
+//        System.out.println("*********Упражнение 8***************");
+//        quickPow();
+//        System.out.println("*********Упражнение 9 и 10***************");
+//        quotient();
+//        System.out.println("*********Упражнение 11***************");
+//        average();
+//        System.out.println("*********Упражнение 12***************");
+//       // int max = 0;
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Введите число a:");
+//        int a = scanner.nextInt();
+//        System.out.println("Введите число b:");
+//        int b = scanner.nextInt();
+//        System.out.println("Введите число c:");
+//        int c = scanner.nextInt();
+//        System.out.println("Максимальное введенное число:" +  maxNumberOfThree(a,b,c));
+//        System.out.println("*********Упражнение 13***************");
+//        randomNumber();
+        System.out.println("*********Упражнение 14 Аморфные числа***************");
+        for (int i = 1; i<1000000000; i++){
+            if (amorphNumner(i)==1) System.out.println(" "+i +" "+i*i +" "+amorphNumner(i));
+        }
+    }
+
+    private static int amorphNumner(int num) {
+        int sqrt = num * num;
+        while (num>0){
+            if (num % 10 != sqrt % 10) return 0;
+            num /= 10;
+            sqrt /= 10;
+        }
+        return 1;
+    }
+
+    private static void randomNumber() {
+        int a = 1; // Начальное значение диапазона - "от"
+        int b = 100; // Конечное значение диапазона - "до"
+
+        int random_number = a + (int) (Math.random() * b);
+        System.out.println("Генератор псевдослучайных чисел от 1 до 100 встроенный = " + random_number);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите начальный диапазон:");
+        int c = scanner.nextInt();
+        System.out.println("Введите конечный диапазон:");
+        int n = scanner.nextInt();
+        int m = 100 ;
+        int x = 1;
+        int i;
+            x = (n * x + c) % m;
+            System.out.println("Генератор псевдослучайных чисел от 1 до 100 = " + x);
+    }
+
+    private static int maxNumberOfThree(int a,int b,int c) {
+        int max = 0;
+        max = a;
+        if (max < b) max = b;
+        if (max < c) max = c;
+        return max;
+
     }
 
     static void average() {
         int k = 0;
         int s = 0;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input N: ");
+        System.out.println("Введите число N: пока не 0");
         int n = scanner.nextInt();
 
         while ( n!=0 ) {
             k = k + 1;
             s = s + n;
-            System.out.println("Input N: ");
+            System.out.println("Введите число N: пока не 0");
             n = scanner.nextInt();
         }
-            if (s % 8 ==0) System.out.println("Average:  " + s/k);
+            if (s % 8 ==0)
+                System.out.println("Среднее арифметическое всех положительных четных чисел, оканчивающихся на 8:  " + s/k);
+            else
+                System.out.println("Среднее арифметическое всех положительных четных чисел, оканчивающихся на 8 НЕТ!!!");
     }
 
     static void quotient() {    // частное от деления
@@ -109,19 +170,6 @@ public class Main {
         b1 =a * a;
         System.out.println("Square Power : " + b1 + "\tCube Power: "+n);
     }
-
-//
-//        while ( b!=1 ) {
-//            if ( b % 2) {
-//                b --;
-//                n *= a;
-//            } else {
-//                a *= a;
-//                b /= 2;
-//            }
-//        }
-   //     System.out.println(" "+a +" "+b +" " +n);
-
 
     static void chessBoard() {
         Scanner scanner = new Scanner(System.in);
@@ -237,7 +285,7 @@ public class Main {
         int i=0;
         do {
 
-            System.out.println("Input number: ");
+            System.out.println("Input number : " +i);
             Scanner scanner = new Scanner(System.in);
             int num = scanner.nextInt();
             //num1 =  num;

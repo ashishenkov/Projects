@@ -14,7 +14,9 @@ import java.math.*;
  4 Написать программу нахождения корней заданного квадратного уравнения. ax2+bx+c=0
  5 С клавиатуры вводится номер месяца. Требуется определить, к какому времени года он относится.
  6. Ввести возраст человека (от 1 до 150 лет) и вывести его вместе с последующим словом «год», «года» или «лет».
-
+ 7. С клавиатуры вводятся числовые координаты двух полей шахматной доски (x1,y1,x2,y2). Требуется определить,
+ относятся ли к поля к одному цвету или нет.
+ 8. Ввести a и b и вывести квадраты и кубы чисел от a до b.
  * @author Alexandr Shishenkov
  * @version March 24, 2018
  */
@@ -40,14 +42,14 @@ public class Main {
         int a = scanner.nextInt();
         System.out.println("Input power b: ");
         int b = scanner.nextInt();
-        int b1= b;
+        long b1= b;
         long n = 1;
         while (b!=0) {
             n = a * a * a;
             b--;
         }
-        int b1 =b * b;
-        System.out.println("Power a:" +a +"\tPower b:" + b1 + "\tPower "+n);
+        b1 =a * a;
+        System.out.println("Square Power : " + b1 + "\tCube Power: "+n);
     }
 
 //
